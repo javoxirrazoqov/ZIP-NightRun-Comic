@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZIP — Night Run</title>
+  <link rel="shortcut icon" href="./public/art/zip-leap.webp" type="image/x-icon">
+  <meta name="description" content="An original comic-style scroll story about Zip, a courier who never stops moving." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bangers&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body class="locked">
+  <div class="halftone" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"></div>
+
+  <!-- ENTER GATE -->
+  <div class="gate" id="gate">
+    <div class="gate__word" aria-hidden="true">ZIP</div>
+    <div class="gate__box">
+      <small>ISSUE #01 · A SCROLL COMIC</small>
+      <h1>NIGHT RUN</h1>
+      <p>Sound on. The city is loud tonight.</p>
+      <button id="enter" class="btn">▶ ENTER</button>
+      <button id="silent" class="btn btn--ghost">enter without sound</button>
+    </div>
+  </div>
+
+  <header class="hud">
+    <span class="hud__logo">ZIP<i>//</i>NIGHT RUN</span>
+    <span class="hud__chapter" id="chapter">COVER</span>
+    <button class="hud__sound" id="sound" aria-label="Toggle sound">SOUND ON</button>
+    <div class="hud__bar"><b id="bar"></b></div>
+  </header>
+
+  <!-- 1 · COVER -->
+  <section class="scene cover" id="s1" data-chapter="COVER" data-mood="drive">
+    <div class="cover__word" aria-hidden="true">ZIP</div>
+    <img class="cover__zip" src="/art/zip-sheet-0.webp" alt="Zip, a masked courier in a yellow jacket" />
+    <div class="caption cover__cap">
+      <small>ISSUE #01 · ORIGINAL STORY</small>
+      <p>One courier.<br />One night.<br />Every rooftop in the city.</p>
+    </div>
+    <div class="cover__strip" aria-hidden="true"><div><span>NEW ISSUE ★ ORIGINAL STORY ★ NO SPIDERS WERE HARMED ★ DELIVERIES ARE LATE ★ </span><span>NEW ISSUE ★ ORIGINAL STORY ★ NO SPIDERS WERE HARMED ★ DELIVERIES ARE LATE ★ </span></div></div>
+    <div class="cover__hint">SCROLL <span>↓</span></div>
+  </section>
+
+  <!-- 2 · ORIGIN (comic page) -->
+  <section class="scene origin" id="s2" data-chapter="CH.1 · ORIGIN" data-mood="calm">
+    <div class="chapter-card"><small>CHAPTER 1</small><b>ORIGIN</b></div>
+    <div class="page">
+      <article class="panel p1">
+        <img src="/art/zip-sheet-0.webp" alt="" />
+        <div class="caption"><small>9:47 PM · NOVA EXPRESS</small><p>Night shift. Pay: pizza and pride.</p></div>
+      </article>
+      <article class="panel p2">
+        <div class="p2__bg"></div>
+        <div class="bubble bubble--l">Forty packages.<br />One bike. What could go wrong?</div>
+      </article>
+      <article class="panel p3">
+        <div class="p3__bg"></div>
+        <span class="mini-sfx">CRUNCH!</span>
+        <div class="bubble bubble--r">…my bike.</div>
+      </article>
+      <article class="panel p4">
+        <img src="/art/zip-sheet-1.webp" alt="" />
+        <div class="caption cap-alt"><small>THE PARCEL</small><p>One package hummed. And it was not on the manifest.</p></div>
+      </article>
+      <article class="panel p5">
+        <p class="big">So Zip started <em>running.</em></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 · ROOFTOPS -->
+  <section class="scene stage" id="s3" data-chapter="CH.2 · ROOFTOPS" data-mood="drive">
+    <div class="chapter-card"><small>CHAPTER 2</small><b>ROOFTOPS</b></div>
+    <div class="stage__bg city"></div>
+    <div class="speed" aria-hidden="true"></div>
+    <img class="actor leap" src="/art/zip-leap.webp" alt="Zip leaping between towers" />
+    <span class="sfx sfx--a">WHOOSH!</span>
+    <div class="meter"><small>SPEED</small><b id="speed">0</b><span>KM/H</span></div>
+    <div class="bubble bubble--zip b-roof">Rule one: never touch the ground!</div>
+    <div class="caption cap-bl"><small>02 — ROOFTOPS</small><p>The ground is where late deliveries go to die.</p></div>
+  </section>
+
+  <!-- 4 · ALLEY -->
+  <section class="scene stage" id="s4" data-chapter="CH.3 · THE ALLEY" data-mood="rush">
+    <div class="chapter-card"><small>CHAPTER 3</small><b>THE ALLEY</b></div>
+    <div class="stage__bg alley"></div>
+    <div class="speed speed--c" aria-hidden="true"></div>
+    <img class="actor run" src="/art/zip-run.webp" alt="Zip sprinting down a neon alley" />
+    <span class="sfx sfx--b">THUD THUD THUD</span>
+    <div class="timer"><small>DELIVERY WINDOW</small><b id="timer">12:00</b></div>
+    <div class="bubble bubble--zip b-alley">Twelve minutes. Twelve. Minutes.</div>
+    <div class="caption cap-tl"><small>03 — THE ALLEY</small><p>The package is ticking louder than his heart.</p></div>
+  </section>
+
+  <!-- 5 · GEAR -->
+  <section class="scene gear" id="s5" data-chapter="CH.4 · GEAR" data-mood="calm">
+    <div class="chapter-card"><small>CHAPTER 4</small><b>THE GEAR</b></div>
+    <h3 class="gear__title" aria-hidden="true">GEAR CHECK</h3>
+    <div class="gear__fig">
+      <img src="/art/zip-crouch.webp" alt="Zip crouching, showing his gear" />
+      <div class="co co--r" style="left:72%;top:11%"><i></i><div><b>SMOKE GOGGLES</b><span>Cuts neon glare. Sees heat trails.</span></div></div>
+      <div class="co co--r" style="left:76%;top:23%"><i></i><div><b>CITY MASK</b><span>Filters smog. Hides a smirk.</span></div></div>
+      <div class="co co--l" style="left:22%;top:40%"><i></i><div><b>THE PACK</b><span>40 parcels. Glow strap = lost-and-found.</span></div></div>
+      <div class="co co--l" style="left:36%;top:88%"><i></i><div><b>GRIP SOLES</b><span>Yellow rubber. Sticks to wet glass.</span></div></div>
+    </div>
+  </section>
+
+  <!-- 6 · FALL -->
+  <section class="scene stage" id="s6" data-chapter="CH.5 · FREEFALL" data-mood="rush">
+    <div class="chapter-card"><small>CHAPTER 5</small><b>FREEFALL</b></div>
+    <div class="stage__bg city fall-bg"></div>
+    <div class="rain" aria-hidden="true"></div>
+    <img class="actor fall" src="/art/zip-fall.webp" alt="Zip falling head-first" />
+    <span class="sfx sfx--c">AAAAAH—</span>
+    <div class="altimeter"><small>ALTITUDE</small><b id="alt">412</b><span>M</span></div>
+    <div class="bubble bubble--zip b-fall">I had a plan! It had a floor in it!</div>
+    <div class="caption cap-br"><small>05 — FREEFALL</small><p>Plan B: there is no plan B.</p></div>
+  </section>
+
+  <!-- 7 · CAST -->
+  <section class="scene cast" id="s7" data-chapter="CH.6 · CAST" data-mood="dark">
+    <div class="chapter-card"><small>CHAPTER 6</small><b>THE CAST</b></div>
+    <div class="cast__row">
+      <article class="card card--zip" data-tilt>
+        <div class="card__img"><img src="/art/zip-run.webp" alt="" /></div>
+        <h4>ZIP</h4><p class="card__role">Courier · 17 · always late</p>
+        <ul class="stats">
+          <li><span>SPEED</span><i data-v="96"></i></li>
+          <li><span>GRIP</span><i data-v="78"></i></li>
+          <li><span>STEALTH</span><i data-v="55"></i></li>
+          <li><span>PATIENCE</span><i data-v="12"></i></li>
+        </ul>
+        <q>The ground is lava. The city is my kitchen floor.</q>
+      </article>
+      <article class="card card--static" data-tilt>
+        <div class="card__img"><img src="/art/static-front.webp" alt="" /></div>
+        <h4>STATIC</h4><p class="card__role">Power broker · age unknown</p>
+        <ul class="stats">
+          <li><span>POWER</span><i data-v="98"></i></li>
+          <li><span>REACH</span><i data-v="90"></i></li>
+          <li><span>SPEED</span><i data-v="40"></i></li>
+          <li><span>HUMOUR</span><i data-v="3"></i></li>
+        </ul>
+        <q>Every light you see is on my bill.</q>
+      </article>
+    </div>
+  </section>
+
+  <!-- 8 · FACE-OFF -->
+  <section class="scene duel" id="s8" data-chapter="CH.7 · FACE-OFF" data-mood="dark">
+    <div class="duel__flash"></div>
+    <div class="duel__half duel__half--zip">
+      <img class="duel__img zipimg" src="/art/zip-leap.webp" alt="Zip ready to fight" />
+      <div class="tag tag--y"><b>ZIP</b><span>Courier. 14 deliveries late.</span></div>
+      <div class="bubble bubble--zip b-duel1">You're blocking my route.</div>
+    </div>
+    <div class="duel__half duel__half--static">
+      <img class="duel__img staticimg" src="/art/static-front.webp" alt="Static, a villain in a black suit with glowing magenta cracks" />
+      <div class="tag tag--m"><b>STATIC</b><span>Owns every power line in town.</span></div>
+      <div class="bubble bubble--static b-duel2">Your route ends here, courier.</div>
+    </div>
+    <span class="sfx sfx--d">ZZZZAP!</span>
+    <div class="chapter-card chapter-card--duel"><small>CHAPTER 7</small><b>FACE-OFF</b></div>
+  </section>
+
+  <!-- 9 · NEXT ISSUE -->
+  <section class="scene next" id="s9" data-chapter="NEXT ISSUE" data-mood="drive">
+    <h3>COMING IN ISSUE #02</h3>
+    <div class="next__row">
+      <div class="teaser"><b>01</b><h5>BLACKOUT</h5><p>Every light in the city dies at once. Zip is the only one who can see.</p></div>
+      <div class="teaser"><b>02</b><h5>THE SIDEKICK</h5><p>A rival courier wants his route. And his jacket.</p></div>
+      <div class="teaser"><b>03</b><h5>THE PARCEL</h5><p>Someone finally opens the humming package.</p></div>
+    </div>
+  </section>
+
+  <!-- 10 · END -->
+  <section class="scene end" id="s10" data-chapter="END" data-mood="calm">
+    <h2 class="end__title"><span>THE NIGHT'S</span><span>NOT OVER.</span></h2>
+    <p class="end__sub">To be continued in Issue #02</p>
+    <button class="btn btn--dark" id="replay">↑ READ AGAIN</button>
+    <p class="end__made">An original story and characters. Built with GSAP, Lenis and Web Audio.</p>
+    <p class="end__credit"></p>
+  </section>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
